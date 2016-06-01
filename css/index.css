@@ -1,25 +1,55 @@
-body { font-family: 'Noto Sans', sans-serif; }
+body {
+  font-family: 'Noto Sans', sans-serif; }
 
-.navigator { height: 900px; width: 250px; position: absolute; z-index: 2000; background: #4885B1; }
+.wrapper {
+  height: 900px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch; }
 
-.navigator_logo { height: 100px; }
+.navigator {
+  height: 900px;
+  width: 250px;
+  background: #4885B1; }
+  .navigator_logo {
+    height: 100px; }
+  .navigator_menu_bar_list {
+    list-style: none;
+    margin: 5px 0; }
+    .navigator_menu_bar_list_href {
+      color: #EAEEF1;
+      font-size: 16px;
+      text-decoration: none;
+      display: inline-block;
+      padding: 3px 6px; }
+    .navigator_menu_bar_list_href:hover {
+      color: #fff;
+      text-decoration: none; }
+  .navigator_menu_bar_list:hover {
+    border-left: 3px solid #fff; }
 
-.navigator_menu_bar_list { list-style: none; margin: 5px 0; }
+.container {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  background: #fff; }
+  .container_header {
+    padding: 3px 10px;
+    border-top: 3px solid #E5E7E8; }
+    .container_header h5 {
+      color: #353C3F;
+      font-size: 15px; }
+  .container_body {
+    border-top: 1px solid #E5E7E8;
+    padding: 3px 10px; }
 
-.navigator_menu_bar_list_href { color: #EAEEF1; font-size: 16px; text-decoration: none; display: inline-block; padding: 3px 6px; }
+.wrapp_page {
+  background: #F5F5F5;
+  width: 100%; }
 
-.navigator_menu_bar_list_href:hover { color: #fff; text-decoration: none; }
-
-.navigator_menu_bar_list:hover { border-left: 3px solid #fff; }
-
-.container { width: 100%; height: auto; margin-bottom: 20px; background: #fff; }
-
-.container_header { padding: 3px 10px; border-top: 3px solid #E5E7E8; }
-
-.container_header h5 { color: #353C3F; font-size: 15px; }
-
-.container_body { border-top: 1px solid #E5E7E8; padding: 3px 10px; }
-
-.wrapp_page { background: #F5F5F5; display: inline-block; height: 900px; position: relative; width: 100%; }
-
-.page { margin-left: 250px; padding: 20px; }
+.page {
+  padding: 20px; }
