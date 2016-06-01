@@ -2,7 +2,6 @@ body {
   font-family: 'Noto Sans', sans-serif; }
 
 .wrapper {
-  height: 900px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -12,7 +11,6 @@ body {
   align-items: stretch; }
 
 .navigator {
-  height: 900px;
   width: 250px;
   background: #4885B1; }
   .navigator_logo {
@@ -38,14 +36,85 @@ body {
   margin-bottom: 20px;
   background: #fff; }
   .container_header {
-    padding: 3px 10px;
+    padding: 10px 0 5px 10px;
     border-top: 3px solid #E5E7E8; }
     .container_header h5 {
       color: #353C3F;
       font-size: 15px; }
   .container_body {
     border-top: 1px solid #E5E7E8;
-    padding: 3px 10px; }
+    padding: 10px; }
+    .container_body_line {
+      margin: 10px 0; }
+      .container_body_line_label {
+        display: inline-block;
+        text-align: right;
+        width: 10%;
+        color: #1A1A1B; }
+      .container_body_line_input, .container_body_line_select {
+        display: inline-block;
+        text-align: left;
+        margin-left: 10px; }
+        .container_body_line_input input, .container_body_line_input select, .container_body_line_select input, .container_body_line_select select {
+          padding: 5px;
+          border-radius: 3px;
+          border: 1px solid #CBD5DD;
+          width: 200px; }
+      .container_body_line_btn {
+        width: 10%;
+        display: inline-block;
+        text-align: left;
+        margin-left: 10%;
+        margin-top: 15px; }
+        .container_body_line_btn_button {
+          margin-left: 10px;
+          padding: 5px; }
+        .container_body_line_btn_button:focus {
+          outline: none; }
+      .container_body_line_check {
+        display: inline-block;
+        text-align: left;
+        margin-left: 10px;
+        vertical-align: top; }
+      .container_body_line_table table {
+        width: 100%;
+        background-color: transparent;
+        border-spacing: 0;
+        border-collapse: collapse;
+        font-size: 14px; }
+        .container_body_line_table table thead {
+          border-bottom: 1px solid #DDDDDD; }
+          .container_body_line_table table thead th {
+            line-height: 1.42857;
+            padding: 8px;
+            vertical-align: top;
+            text-align: left;
+            font-weight: 600; }
+        .container_body_line_table table tbody tr td {
+          border-top: 1px solid #e7eaec;
+          line-height: 1.42857;
+          padding: 8px;
+          vertical-align: top;
+          text-align: left; }
+
+.btn_add, .btn_change {
+  background: #4885B1;
+  border-radius: 3px;
+  border: none;
+  padding: 5px 10px;
+  color: #EAEEF1;
+  cursor: pointer; }
+
+.btn_change {
+  background: #2D8752; }
+
+.btn_add:hover {
+  color: #fff;
+  background: #6797B9; }
+
+.btn_change:hover {
+  color: #fff;
+  background: #38A465; }
 
 .wrapp_page {
   background: #F5F5F5;

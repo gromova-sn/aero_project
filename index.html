@@ -38,7 +38,33 @@
                         <h5>Зарегистрировать рейс</h5>
                     </div>
                     <div class="page_flot_body container_body">
-                        
+                        <form action="" id="flot_form" method="POST">
+                            <div class="container_body_line">
+                                <label for="flot_form" class="container_body_line_label">Самолет</label>
+                                <div class="container_body_line_input">
+                                    <input type="text" name="name_flot">
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <label for="flot_form" class="container_body_line_label">Номер рейса</label>
+                                <div class="container_body_line_input">
+                                    <input type="text" name="reis_flot">
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <label for="flot_form" class="container_body_line_label">Страны полета</label>
+                                <div class="container_body_line_check">
+                                        <input type="checkbox" value="ru">Россия<br>
+                                        <input type="checkbox" value="fr">Франция<br>
+                                        <input type="checkbox" value="cz">Чехия<br>
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <div class="container_body_line_btn">
+                                    <button type="submit" class="container_body_line_btn_button btn_add">Добавить</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
@@ -47,7 +73,49 @@
                         <h5>Забронировать места на рейс</h5>
                     </div>
                     <div class="page_bron_body container_body">
-                        
+                        <form action="" id="bron_form" method="POST">
+                            <div class="container_body_line">
+                                <label for="bron_form" class="container_body_line_label">Самолет</label>
+                                <div class="container_body_line_select">
+                                    <select name="bron_flot">
+                                        <option disabled>Выберите самолет</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <label for="bron_form" class="container_body_line_label">Номер рейса</label>
+                                <div class="container_body_line_select">
+                                    <select name="bron_reis">
+                                        <option disabled>Выберите рейс</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <label for="bron_form" class="container_body_line_label">Страна полета</label>
+                                <div class="container_body_line_select">
+                                    <select name="bron_flot">
+                                        <option disabled>Выберите страну полета</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <label for="bron_form" class="container_body_line_label">Даты вылета</label>
+                                <div class="container_body_line_select">
+                                    
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <label for="bron_form" class="container_body_line_label">Направление</label>
+                                <div class="container_body_line_check">
+                                    <input type="radio" value="double">туда и обратно<br>
+                                </div>
+                            </div>
+                            <div class="container_body_line">
+                                <div class="container_body_line_btn">
+                                    <button type="submit" class="container_body_line_btn_button btn_change">Забронировать</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>                    
                 </div>
 
@@ -56,7 +124,28 @@
                         <h5>Таблица существующих рейсов</h5>
                     </div>
                     <div class="page_all_body container_body">
-                        
+                        <div class="container_body_line">
+                            <div class="container_body_line_table" id="table_all">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th><span>Самолет</span></th>
+                                            <th><span>Рейс</span></th>
+                                            <th><span>Страны</span></th>
+                                            <th><span>Кол-во регистраций на рейс</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span>Aero Jet</span></td>
+                                            <td><span>777A</span></td>
+                                            <td><span>Россия, Чехия</span></td>
+                                            <td><span>5</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>  
                 </div>
             </div>

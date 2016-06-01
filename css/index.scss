@@ -6,8 +6,8 @@ $text_color: #1A1A1B;
 $border_top_color: #E5E7E8; 
 
 .wrapper {
-    height: 900px;
-
+    // height: 900px;
+    
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -19,7 +19,7 @@ $border_top_color: #E5E7E8;
 }
 
 .navigator {
-    height: 900px;
+//     height: 900px;
 //     width: 250px;
 //     position: absolute;
 //     z-index: 2000;
@@ -57,7 +57,7 @@ $border_top_color: #E5E7E8;
     margin-bottom: 20px;
     background: #fff;
     &_header {
-        padding: 3px 10px;
+        padding: 10px 0 5px 10px;
         border-top: 3px solid $border_top_color;
         & h5 {
             color: $title_color;
@@ -66,9 +66,93 @@ $border_top_color: #E5E7E8;
     }
     &_body {
         border-top: 1px solid $border_top_color;
-        padding: 3px 10px;
-
+        padding: 10px;
+        &_line {
+            margin: 10px 0;
+            &_label {
+                display: inline-block;
+                text-align: right;
+                width: 10%;
+                color: $text_color;
+            }
+            &_input, &_select {
+                display: inline-block;
+                text-align: left;
+                margin-left: 10px;
+                & input, & select {
+                    padding: 5px;
+                    border-radius: 3px;
+                    border: 1px solid #CBD5DD; 
+                    width: 200px;
+                }
+            }
+            &_btn {
+                width: 10%;
+                display: inline-block;
+                text-align: left;
+                margin-left: 10%;
+                margin-top: 15px;
+                &_button {
+                    margin-left: 10px;
+                    padding: 5px; 
+                }
+                &_button:focus {
+                    outline:none;
+                }
+            }
+            &_check {
+                display: inline-block;
+                text-align: left;
+                margin-left: 10px;
+                vertical-align: top;
+            }
+            &_table {
+                & table {
+                    width: 100%;
+                    background-color: transparent;
+                    border-spacing: 0;
+                    border-collapse: collapse;
+                    font-size: 14px;
+                    & thead {
+                        border-bottom: 1px solid #DDDDDD;
+                        & th {
+                            line-height: 1.42857;
+                            padding: 8px;
+                            vertical-align: top;
+                            text-align: left;
+                            font-weight: 600;
+                        }
+                    }
+                    & tbody tr td {
+                        border-top: 1px solid #e7eaec;
+                        line-height: 1.42857;
+                        padding: 8px;
+                        vertical-align: top;
+                        text-align: left;
+                    }
+                }
+            }
+        }
     }
+}
+.btn_add, .btn_change {
+    background: #4885B1;
+    border-radius: 3px;
+    border: none;
+    padding: 5px 10px;
+    color: #EAEEF1;
+    cursor: pointer;
+}
+.btn_change {
+    background: #2D8752; 
+}
+.btn_add:hover {
+    color: #fff;
+    background: #6797B9;
+}
+.btn_change:hover {
+    color: #fff;
+    background: #38A465;
 }
 .wrapp_page {
     background: #F5F5F5;
