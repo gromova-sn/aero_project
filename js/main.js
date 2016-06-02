@@ -41,7 +41,7 @@
             'click #btn_flot': 'testAlert'
         },
         testAlert: function () {
-            console.log(this.model);
+            console.log(this.model); //this.model - undefind
             // this.model.set({
             //     flot: this.$el.find('#name_flot').val(),
             //     reis: this.$el.find('#reise_flot').val()
