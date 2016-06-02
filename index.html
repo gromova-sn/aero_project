@@ -42,13 +42,13 @@
                             <div class="container_body_line">
                                 <label for="flot_form" class="container_body_line_label">Самолет</label>
                                 <div class="container_body_line_input">
-                                    <input type="text" name="name_flot">
+                                    <input type="text" name="name_flot" id="name_flot">
                                 </div>
                             </div>
                             <div class="container_body_line">
                                 <label for="flot_form" class="container_body_line_label">Номер рейса</label>
                                 <div class="container_body_line_input">
-                                    <input type="text" name="reis_flot">
+                                    <input type="text" name="reis_flot" id="reise_flot"> 
                                 </div>
                             </div>
                             <div class="container_body_line">
@@ -136,24 +136,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+                                        <!-- <tr>
                                             <td><span>Aero Jet</span></td>
                                             <td><span>777A</span></td>
                                             <td><span>Россия, Чехия</span></td>
                                             <td><span>5</span></td>
-                                        </tr>
-                                        <tr class="template_place">
-                                            <script id="layout-view-template" type="text/template">
-                                                <% _.each(aero, function(item) { %>
-                                                    
-                                                    <td><span id="flot"><%- item.flot %></span></td>
-                                                    <td><span id="reis"><%- item.reis %></span></td>
-                                                    <td><span id="country"><%- item.country %></span></td>
-                                                    <td><span id="count_reis"><%- item.count_reis %></span></td>
-                                                    
-                                                <% }) %>
-                                            </script>
-                                        </tr>
+                                        </tr> -->
+                                        <script id="layout-view-template" type="text/template">
+                                            <td><span id="flot"><%- flot %></span></td>
+                                            <td><span id="reis"><%- reis %></span></td>
+                                            <td><span id="country"><%- country %></span></td>
+                                            <td><span id="count_reis"><%- count_reis %></span></td>
+                                        </script>
                                     </tbody>
                                 </table>
                             </div>
