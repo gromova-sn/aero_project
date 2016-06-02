@@ -1,8 +1,9 @@
 (function() {
     'use strict';
 
-    var projectAero = new Backbone.Marionette.Application();
+    // var projectAero = new Marionette.Application.extend({
 
+    // });
 
     var AeroModel = Backbone.Model.extend({
         defaults: function () {
@@ -27,20 +28,30 @@
     var AeroCollectionView = Marionette.CollectionView.extend({ //render one ItemView per model
         el: 'tbody',
         childView: AeroItemView
+
     });
 
     var AeroCompositeView = Marionette.CompositeView.extend({ //use this view to render our collection
-        
+        itemView: AeroItemView
     });
 
     var AeroLayoutView = Marionette.LayoutView.extend({  //предназначен для организации иерархий представлений
-
+        el: '.wrapp_page',
+        events: {
+            'click #btn_flot': 'testAlert'
+        },
+        testAlert: function () {
+            console.log(this.model);
+            // this.model.set({
+            //     flot: this.$el.find('#name_flot').val(),
+            //     reis: this.$el.find('#reise_flot').val()
+            // });
+            console.log('testAlert');
+        }
     });
 
-    
-    projectAero.addRegions({
-        mainRegions: '.wrapp_page'
-    });
+
+
 
     // var aero = [{
     //             flot: 'FlyMSK',
@@ -55,24 +66,14 @@
     //             count_reis: 51
     //         }];
 
+    var myAeroLayoutView = new AeroLayoutView();
     var myAero = new AeroCollection(AeroModel);
     var myAeroView = new AeroCollectionView({collection: myAero});
     myAeroView.render();
 
     $('tbody').append(myAeroView.el);
-    // var layoutView = new AeroItemView({
-    //     model: new Backbone.Model({
-    //         aero: [{
-    //             flot: 'FlyMSK',
-    //             reis: '555 B',
-    //             country: 'РОссия',
-    //             count_reis: 5
-    //         }]
-    //     })
-    // });
-
-    // layoutView.render();
 
 
-    // var MyApp = new projectAero();
+
+    // var MyApp = new projectAero({});
 })();
