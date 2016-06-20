@@ -1,79 +1,74 @@
 (function() {
     'use strict';
 
-    // var projectAero = new Marionette.Application.extend({
-
-    // });
-
     var AeroModel = Backbone.Model.extend({
         defaults: function () {
             return {
                 flot: '',
-                reis: '',
-                country: '',
-                count_reis: ''
+                reis: ''
             };
         }
     });
 
-    var AeroItemView = Marionette.ItemView.extend({ //a view that represents a single item
+    var AeroItemView = Backbone.View.extend({ 
         tagName: 'tr',
-        template: "#layout-view-template"
+        template: _.template($('#layout-view-template').html()),
+        // template: "#layout-view-template"
+        render: function () {
+            this.$el.html(this.template(this.model.toJSON()));
+            return this;
+        }
     });
 
     var AeroCollection = Backbone.Collection.extend({
         model: AeroModel
     });
 
-    var AeroCollectionView = Marionette.CollectionView.extend({ //render one ItemView per model
+    var AeroCollectionView = Backbone.View.extend({
         el: 'tbody',
-        childView: AeroItemView
-
-    });
-
-    var AeroCompositeView = Marionette.CompositeView.extend({ //use this view to render our collection
-        itemView: AeroItemView
-    });
-
-    var AeroLayoutView = Marionette.LayoutView.extend({  //предназначен для организации иерархий представлений
-        el: '.wrapp_page',
-        events: {
-            'click #btn_flot': 'testAlert'
+        initialize: function(params) {
+            this.collection = params.collection;
+            this.listenTo(this.collection, 'add', this.addNew);
         },
-        testAlert: function () {
-            console.log(this.model); //this.model - undefind
-            // this.model.set({
-            //     flot: this.$el.find('#name_flot').val(),
-            //     reis: this.$el.find('#reise_flot').val()
-            // });
-            console.log('testAlert');
+        addNew: function(model) {
+            console.log(model);
+            var view = new AeroItemView({ model: model });
+            this.$el.append(view.render().el);
+        }
+
+    });
+
+    
+    var AeroApp = Backbone.View.extend({
+        el: '.wrapper',
+        events: {
+            'click #btn_flot': 'addLine'
+        },
+        initialize: function() {
+            this.collection = new AeroCollection(); //создаем модель коллекции
+            this.collectionView = new AeroCollectionView({ collection: this.collection }); //представление коллекции
+        },
+        addLine: function() {
+            if(!$('#name_flot').val() || !$('#reis_flot').val()) return; 
+            var allCountry = [];
+            _.each($('.country_box input:checked'), function (elem) {
+                allCountry.push($(elem).val());
+            }, this);
+
+            var data = {
+                flot: $('#name_flot').val(),
+                reis: $('#reis_flot').val(),
+                country: allCountry,
+                count_reis: 0
+            };
+            this.collection.add(data);
+
+            $('#name_flot').val('');
+            $('#reis_flot').val('');
         }
     });
 
+    window.App = new AeroApp;
 
 
-
-    // var aero = [{
-    //             flot: 'FlyMSK',
-    //             reis: '555 B',
-    //             country: 'РОссия',
-    //             count_reis: 5
-    //         },
-    //         {
-    //             flot: 'FlyMSK1',
-    //             reis: '555 B1',
-    //             country: 'РОссия1',
-    //             count_reis: 51
-    //         }];
-
-    var myAeroLayoutView = new AeroLayoutView();
-    var myAero = new AeroCollection(AeroModel);
-    var myAeroView = new AeroCollectionView({collection: myAero});
-    myAeroView.render();
-
-    $('tbody').append(myAeroView.el);
-
-
-
-    // var MyApp = new projectAero({});
 })();
