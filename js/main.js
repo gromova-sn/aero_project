@@ -25,6 +25,8 @@
         localStorage: new Backbone.LocalStorage("aeroStorage")
     });
 
+
+
     var AeroCollectionView = Backbone.View.extend({
         el: 'tbody',
         initialize: function(params) {
@@ -48,6 +50,8 @@
         initialize: function() {
             this.collection = new AeroCollection(); //создаем модель коллекции
             this.collectionView = new AeroCollectionView({ collection: this.collection }); //представление коллекции
+            
+            this.collection.fetch();
         },
         addLine: function() {
             if(!$('#name_flot').val() || !$('#reis_flot').val()) return; 
