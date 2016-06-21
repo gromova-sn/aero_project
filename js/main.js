@@ -52,6 +52,8 @@
             this.collectionView = new AeroCollectionView({ collection: this.collection }); //представление коллекции
             
             this.collection.fetch();
+
+            $(".chosen-select").chosen();
         },
         addLine: function() {
             if(!$('#name_flot').val() || !$('#reis_flot').val()) return; 
@@ -70,6 +72,7 @@
 
             $('#name_flot').val('');
             $('#reis_flot').val('');
+            $('.country_box input:checked').attr('checked', false);
         }
     });
 

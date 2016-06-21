@@ -7,6 +7,9 @@
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
+
+
+    <link rel="stylesheet" href="css/lib/chosen.min.css">
 </head>
 
 <body>
@@ -77,15 +80,17 @@
                             <div class="container_body_line">
                                 <label for="bron_form" class="container_body_line_label">Авиакомпания</label>
                                 <div class="container_body_line_select">
-                                    <select name="bron_flot">
-                                        <option disabled>Выберите авиакомпанию</option>
+                                    <select data-placeholder="Выберите авиакомпанию" name="bron_flot" class="chosen-select">
+                                        <option ></option>
+                                        <option >1</option>
+                                        <option >2</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="container_body_line">
                                 <label for="bron_form" class="container_body_line_label">Номер рейса</label>
                                 <div class="container_body_line_select">
-                                    <select name="bron_reis">
+                                    <select name="bron_reis" class="chosen-select">
                                         <option disabled>Выберите рейс</option>
                                     </select>
                                 </div>
@@ -93,7 +98,7 @@
                             <div class="container_body_line">
                                 <label for="bron_form" class="container_body_line_label">Страна полета</label>
                                 <div class="container_body_line_select">
-                                    <select name="bron_flot">
+                                    <select name="bron_flot" class="chosen-select">
                                         <option disabled>Выберите страну полета</option>
                                     </select>
                                 </div>
@@ -112,7 +117,7 @@
                             </div>
                             <div class="container_body_line">
                                 <div class="container_body_line_btn">
-                                    <button type="submit" class="container_body_line_btn_button btn_change">Забронировать</button>
+                                    <div class="container_body_line_btn_button btn_change">Забронировать</div>
                                 </div>
                             </div>
                         </form>
@@ -157,11 +162,12 @@
             </div>
         </div>
     </div>
-    <script type='text/javascript' src="js/jquery.js"></script>
-    <script type='text/javascript' src="js/underscore.js"></script>
-    <script type='text/javascript' src="js/backbone.js"></script>
-    <!-- <script type='text/javascript' src="js/backbone.marionette.js"></script> -->
-    <script type='text/javascript' src="js/backbone-localstorage.min.js"></script>
+    <script type='text/javascript' src="js/lib/jquery.js"></script>    
+    <script type='text/javascript' src="js/lib/chosen.jquery.min.js"></script>
+    <script type='text/javascript' src="js/lib/underscore.js"></script>
+    <script type='text/javascript' src="js/lib/backbone.js"></script>
+    <!-- <script type='text/javascript' src="js/lib/backbone.marionette.js"></script> -->
+    <script type='text/javascript' src="js/lib/backbone-localstorage.min.js"></script>
     <script type='text/javascript' src="js/main.js"></script>
 </body>
 
