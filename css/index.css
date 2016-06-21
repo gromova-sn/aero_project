@@ -2,7 +2,7 @@ body { font-family: 'Noto Sans', sans-serif; }
 
 .wrapper { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; flex-direction: row; align-items: stretch; }
 
-.navigator { width: 250px; background: #4885B1; }
+.navigator { width: 250px; background: #4885B1; position: fixed; height: 100%; }
 
 .navigator_logo { height: 100px; }
 
@@ -54,6 +54,6 @@ body { font-family: 'Noto Sans', sans-serif; }
 
 .btn_change:hover { color: #fff; background: #38A465; }
 
-.wrapp_page { background: #F5F5F5; width: 100%; }
+.wrapp_page { background: #F5F5F5; width: 100%; margin-left: 250px; }
 
 .page { padding: 20px; }
