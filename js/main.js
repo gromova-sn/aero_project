@@ -13,15 +13,16 @@
     var AeroItemView = Backbone.View.extend({ 
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
-        // template: "#layout-view-template"
         render: function () {
+            this.model.save();
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         }
     });
 
     var AeroCollection = Backbone.Collection.extend({
-        model: AeroModel
+        model: AeroModel,
+        localStorage: new Backbone.LocalStorage("aeroStorage")
     });
 
     var AeroCollectionView = Backbone.View.extend({
