@@ -24,11 +24,17 @@ $border_top_color: #E5E7E8;
 //     position: absolute;
 //     z-index: 2000;
     width: 250px;
-    background: #4885B1;
+    background: #4885B1; 
     position: fixed;
     height: 100%;
     &_logo {
-        height: 100px;
+        height: 128px;
+        width: 128px;
+        background: url('../images/flot.png');
+        background-size: cover;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        margin-top: 20px;
     }
     &_menu {
         &_bar {

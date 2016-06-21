@@ -4,7 +4,7 @@ body { font-family: 'Noto Sans', sans-serif; }
 
 .navigator { width: 250px; background: #4885B1; position: fixed; height: 100%; }
 
-.navigator_logo { height: 100px; }
+.navigator_logo { height: 128px; width: 128px; background: url("../images/flot.png"); background-size: cover; margin: 0 auto; margin-bottom: 30px; margin-top: 20px; }
 
 .navigator_menu_bar_list { list-style: none; margin: 5px 0; }
 
