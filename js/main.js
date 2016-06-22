@@ -72,10 +72,12 @@
 
     
     var AeroApp = Backbone.View.extend({
-        el: '.wrapper',
+        el: 'body',
         events: {
             'click #btn_flot': 'addLine',
-            'click #btn_bron': 'makeBron'
+            'click #btn_bron': 'makeBron',
+            'click .curtain_close': 'curtainUp',
+            'click .container_header_arrow': 'containerRollUp'
         },
         initialize: function() {
             this.collection = new AeroCollection(); //создаем модель коллекции
@@ -84,6 +86,33 @@
 
             $(".chosen-select").chosen();
             this.collectionChoseView = new AeroChoseCollectionView({ collection: this.collection }); //представление 1 коллекции
+        
+            this.curtainDown();
+            this.curtainSlider();
+        },
+        curtainDown: function () {
+            setTimeout(function () {
+                    $('.curtain').addClass('curtain_down');
+                    $('.curtain').removeClass('curtain_up');
+                }, 5000);
+        },
+        curtainUp: function () {
+            $('.curtain').removeClass('curtain_down');
+            $('.curtain').addClass('curtain_up');
+        },
+        curtainSlider: function () {
+
+        },
+        containerRollUp: function (event) {
+            var $elem = $(event.currentTarget);
+            if($elem.hasClass('rollup')) {
+                $elem.parent('div').siblings('.container_body').hide();
+                $elem.removeClass('rollup');
+            } else {
+                $elem.parent('div').siblings('.container_body').show();
+                $elem.addClass('rollup');
+            }
+            
         },
         addLine: function() {
             if(!$('#name_flot').val() || !$('#reis_flot').val()) return; 

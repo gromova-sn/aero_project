@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>Aero project</title>
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Cormorant+Infant:400,500italic,600italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
 
@@ -13,6 +15,13 @@
 </head>
 
 <body>
+    <div class="curtain curtain_up">
+        <div class="curtain_slider"></div>
+        <div class="curtain_text">
+            <p class="curtain_text_header">Бронируй тут и тебе это понравится</p>
+        </div>
+        <div class="curtain_close"></div>
+    </div>
     <div class="wrapper">
         <div class="navigator">
             <div class="navigator_logo"></div>
@@ -39,6 +48,7 @@
                 <div class="page_flot container" id="flot">
                     <div class="page_flot_header container_header">
                         <h5>Зарегистрировать рейс</h5>
+                        <div class="container_header_arrow"></div>
                     </div>
                     <div class="page_flot_body container_body">
                         <form action="" id="flot_form" method="POST">
@@ -74,6 +84,7 @@
                 <div class="page_bron container" id="bron">
                     <div class="page_bron_header container_header">
                         <h5>Забронировать места на рейс</h5>
+                        <div class="container_header_arrow"></div>
                     </div>
                     <div class="page_bron_body container_body">
                         <form action="" id="bron_form" method="POST">
@@ -125,6 +136,7 @@
                 <div class="page_all container" id="all">
                     <div class="page_all_header container_header">
                         <h5>Таблица существующих рейсов</h5>
+                        <div class="container_header_arrow"></div>
                     </div>
                     <div class="page_all_body container_body">
                         <div class="container_body_line">
