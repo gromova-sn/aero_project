@@ -100,6 +100,9 @@
             $('.country_box input:checked').attr('checked', false);
         },
         makeBron: function () {
+            var data = {
+                //выбранные пункты
+            };
             
             console.log(this.collectionChoseView);
 
