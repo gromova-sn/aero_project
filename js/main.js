@@ -13,6 +13,10 @@
     var AeroItemView = Backbone.View.extend({ 
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
+        initialize: function () {
+            console.log(this.model);
+            // this.listenTo(this.model, 'change', this.render);
+        },
         render: function () {
             this.model.save();
             this.$el.html(this.template(this.model.toJSON()));
@@ -30,6 +34,13 @@
         initialize: function(params) {
             this.collection = params.collection;
             this.listenTo(this.collection, 'add', this.addNew);
+            this.listenTo(this.collection, 'change', this.render);
+        },
+        render: function (model) {
+            console.log(1);
+            // this.model.save();
+            // this.$el.html(this.template(this.model.toJSON()));
+            // return this;
         },
         addNew: function(model) {
             var view = new AeroItemView({ model: model });
@@ -51,16 +62,12 @@
 
             _.each(model, function (elem) {                
                 $(this.el).find('.bron_flot').append('<option value=' + elem.attributes.flot + '>'  + elem.attributes.flot + '</option>');
-
-                $(this.el).find('.bron_reis').append('<option value=' + elem.attributes.reis + '>'  + elem.attributes.reis + '</option>');
-                
+                $(this.el).find('.bron_reis').append('<option value=' + elem.attributes.reis + '>'  + elem.attributes.reis + '</option>');                
                 $(this.el).find('.bron_country').append('<option value=' + elem.attributes.country[0] + '>'  + elem.attributes.country[0] + '</option>');
 
                 $('.chosen-select').trigger("chosen:updated");
             }, this);
         }
-        
-
     });
 
     
@@ -76,7 +83,6 @@
             this.collection.fetch();
 
             $(".chosen-select").chosen();
-
             this.collectionChoseView = new AeroChoseCollectionView({ collection: this.collection }); //представление 1 коллекции
         },
         addLine: function() {
@@ -100,12 +106,11 @@
             $('.country_box input:checked').attr('checked', false);
         },
         makeBron: function () {
-            var data = {
-                //выбранные пункты
-            };
-            
-            console.log(this.collectionChoseView);
-
+            _.each(this.collection.models, function (elem) {
+                elem.attributes.count_reis = '22';
+            }, this);
+            console.log(this.collection);
+            // this.model.change(dataBron);
         }
     });
 

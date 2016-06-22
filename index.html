@@ -57,9 +57,9 @@
                             <div class="container_body_line">
                                 <label for="flot_fosrm" class="container_body_line_label">Страны полета</label>
                                 <div class="container_body_line_check country_box">
-                                        <input type="radio" value="Россия">Россия<br>
-                                        <input type="radio" value="Франция">Франция<br>
-                                        <input type="radio" value="Чехия">Чехия<br>
+                                        <input type="radio" name="country" value="Россия">Россия<br>
+                                        <input type="radio" name="country" value="Франция">Франция<br>
+                                        <input type="radio" name="country" value="Чехия">Чехия<br>
                                 </div>
                             </div>
                             <div class="container_body_line">
@@ -142,11 +142,11 @@
                                     <tbody>
                                         
                                         <script id="layout-view-template" type="text/template">
-                                            <td><span id="flot"><%- flot %></span></td>
-                                            <td><span id="reis"><%- reis %></span></td>
-                                            <td><span id="country"><%- country %></span></td>
-                                            <td><span id="count_reis"><%- count_reis %></span></td>
-                                            <td><span id="places"><%- places %></span></td>
+                                            <td><span class="flot"><%- flot %></span></td>
+                                            <td><span class="reis"><%- reis %></span></td>
+                                            <td><span class="country"><%- country %></span></td>
+                                            <td><span class="count_reis"><%- count_reis %></span></td>
+                                            <td><span class="places"><%- places %></span></td>
                                         </script>
                                     </tbody>
                                 </table>
