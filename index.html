@@ -57,9 +57,9 @@
                             <div class="container_body_line">
                                 <label for="flot_fosrm" class="container_body_line_label">Страны полета</label>
                                 <div class="container_body_line_check country_box">
-                                        <input type="checkbox" value="Россия">Россия<br>
-                                        <input type="checkbox" value="Франция">Франция<br>
-                                        <input type="checkbox" value="Чехия">Чехия<br>
+                                        <input type="radio" value="Россия">Россия<br>
+                                        <input type="radio" value="Франция">Франция<br>
+                                        <input type="radio" value="Чехия">Чехия<br>
                                 </div>
                             </div>
                             <div class="container_body_line">
@@ -80,17 +80,15 @@
                             <div class="container_body_line">
                                 <label for="bron_form" class="container_body_line_label">Авиакомпания</label>
                                 <div class="container_body_line_select">
-                                    <select data-placeholder="Выберите авиакомпанию" name="bron_flot" class="chosen-select">
+                                    <select data-placeholder="Выберите авиакомпанию" name="bron_flot" class="chosen-select bron_flot">
                                         <option ></option>
-                                        <option >1</option>
-                                        <option >2</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="container_body_line">
                                 <label for="bron_form" class="container_body_line_label">Номер рейса</label>
                                 <div class="container_body_line_select">
-                                    <select data-placeholder="Выберите рейс" name="bron_reis" class="chosen-select">
+                                    <select data-placeholder="Выберите рейс" name="bron_reis" class="chosen-select bron_reis">
                                         <option></option>
                                     </select>
                                 </div>
@@ -98,7 +96,7 @@
                             <div class="container_body_line">
                                 <label for="bron_form" class="container_body_line_label">Страна полета</label>
                                 <div class="container_body_line_select">
-                                    <select data-placeholder="Выберите страну полета" name="bron_flot" class="chosen-select">
+                                    <select data-placeholder="Выберите страну полета" name="bron_country" class="chosen-select bron_country">
                                         <option></option>
                                     </select>
                                 </div>
@@ -117,7 +115,7 @@
                             </div>
                             <div class="container_body_line">
                                 <div class="container_body_line_btn">
-                                    <div class="container_body_line_btn_button btn_change">Забронировать</div>
+                                    <div id="btn_bron" class="container_body_line_btn_button btn_change">Забронировать</div>
                                 </div>
                             </div>
                         </form>
@@ -138,20 +136,23 @@
                                             <th><span>Рейс</span></th>
                                             <th><span>Страны</span></th>
                                             <th><span>Кол-во регистраций на рейс</span></th>
+                                            <th><span>Кол-во оставшихся мест в самолете</span></th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><span>Aero Jet</span></td>
                                             <td><span>777A</span></td>
-                                            <td><span>Россия, Чехия</span></td>
+                                            <td><span>Чехия</span></td>
                                             <td><span>5</span></td>
+                                            <td><span>56</span></td>
                                         </tr>
                                         <script id="layout-view-template" type="text/template">
                                             <td><span id="flot"><%- flot %></span></td>
                                             <td><span id="reis"><%- reis %></span></td>
                                             <td><span id="country"><%- country %></span></td>
                                             <td><span id="count_reis"><%- count_reis %></span></td>
+                                            <td><span id="places"><%- places %></span></td>
                                         </script>
                                     </tbody>
                                 </table>
