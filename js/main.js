@@ -70,7 +70,8 @@
             'click #btn_flot': 'addLine',
             'click #btn_bron': 'makeBron',
             'click .curtain_close': 'curtainUp',
-            'click .container_header_arrow': 'containerRollUp'
+            'click .container_header_arrow': 'containerRollUp',
+            // 'click #slider_next':
         },
         initialize: function() {
             this.collection = new AeroCollection(); //создаем модель коллекции
@@ -81,7 +82,6 @@
             this.collectionChoseView = new AeroChoseCollectionView({ collection: this.collection }); //представление 1 коллекции
         
             this.curtainDown();
-            this.curtainSlider();
             this.resizeHeightWindow();
         },
         resizeHeightWindow: function () {

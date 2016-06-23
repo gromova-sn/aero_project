@@ -8,6 +8,50 @@ $border_top_color: #E5E7E8;
 .curtain {
     &_slider {
         padding-top: 30px;
+        &_container {
+            overflow: hidden;
+            width: 800px;
+            background: #F5F5F5;
+            border: 2px solid #E8E8E8;
+            border-radius: 3px;
+            margin: 0 auto;
+            height: 200px;
+            position: relative;
+            padding: 20px;
+            white-space: nowrap;
+            &_btns {
+                &_next,&_prev {
+                    cursor: pointer;
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    background: url('../images/icons/slider-arrow.png');
+                    position: absolute;
+                    top: 110px
+                }
+                &_next {
+                    right: 10px;
+                }
+                &_prev {
+                    -moz-transform: rotate(-90deg);
+                    -ms-transform: rotate(-90deg);
+                    -webkit-transform: rotate(-90deg);
+                    -o-transform: rotate(-90deg);
+                    transform: rotate(-180deg);
+                    left: 10px;
+                }
+            }
+            &_img {
+                overflow: hidden;
+                margin: 10px;
+                &_box {
+                    display: inline-block;
+                    & img {
+                        height: 179px;
+                    }
+                }
+            }
+        }
     }
     &_text {
         padding-top: 30px;

@@ -2,6 +2,20 @@ body { font-family: 'Noto Sans', sans-serif; }
 
 .curtain_slider { padding-top: 30px; }
 
+.curtain_slider_container { overflow: hidden; width: 800px; background: #F5F5F5; border: 2px solid #E8E8E8; border-radius: 3px; margin: 0 auto; height: 200px; position: relative; padding: 20px; white-space: nowrap; }
+
+.curtain_slider_container_btns_next, .curtain_slider_container_btns_prev { cursor: pointer; display: inline-block; width: 16px; height: 16px; background: url("../images/icons/slider-arrow.png"); position: absolute; top: 110px; }
+
+.curtain_slider_container_btns_next { right: 10px; }
+
+.curtain_slider_container_btns_prev { -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-180deg); left: 10px; }
+
+.curtain_slider_container_img { overflow: hidden; margin: 10px; }
+
+.curtain_slider_container_img_box { display: inline-block; }
+
+.curtain_slider_container_img_box img { height: 179px; }
+
 .curtain_text { padding-top: 30px; text-align: center; margin-bottom: 30px; }
 
 .curtain_text_header { font-family: 'Cormorant Infant', serif; font-size: 30px; font-weight: 600; color: #EAEEF1; }
