@@ -101,7 +101,9 @@
 
         },
         containerRollUp: function (event) {
-            var $elem = $(event.currentTarget);
+            var $elem = $(event.currentTarget),
+                pageHeight,
+                windowHeight = window.innerHeight;
 
             if($elem.hasClass('rollup')) {
                 $elem.parent('div').siblings('.container_body').hide();
@@ -109,8 +111,10 @@
             } else {
                 $elem.parent('div').siblings('.container_body').show();
                 $elem.addClass('rollup');
-
-                $('.wrapp_page').height($('.page').outerHeight());
+                pageHeight = $('.page').outerHeight()
+                if(pageHeight > windowHeight) {
+                    $('.wrapp_page').height($('.page').outerHeight());
+                }
             }
             
         },
