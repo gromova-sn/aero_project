@@ -34,13 +34,6 @@
         initialize: function(params) {
             this.collection = params.collection;
             this.listenTo(this.collection, 'add', this.addNew);
-            this.listenTo(this.collection, 'change', this.render);
-        },
-        render: function (model) {
-            console.log(1);
-            // this.model.save();
-            // this.$el.html(this.template(this.model.toJSON()));
-            // return this;
         },
         addNew: function(model) {
             var view = new AeroItemView({ model: model });
