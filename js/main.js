@@ -82,6 +82,10 @@
         
             this.curtainDown();
             this.curtainSlider();
+            this.resizeHeightWindow();
+        },
+        resizeHeightWindow: function () {
+            $('.wrapp_page').height(window.innerHeight);
         },
         curtainDown: function () {
             setTimeout(function () {

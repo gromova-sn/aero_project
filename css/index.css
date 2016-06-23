@@ -74,7 +74,7 @@ body { font-family: 'Noto Sans', sans-serif; }
 
 .btn_change:hover { color: #fff; background: #38A465; }
 
-.wrapp_page { background: #F5F5F5; width: 100%; }
+.wrapp_page { background: #F5F5F5; width: 100%; min-height: 400px; }
 
 .page { padding: 20px; }
 
