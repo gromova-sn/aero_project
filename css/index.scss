@@ -10,7 +10,7 @@ $border_top_color: #E5E7E8;
         padding-top: 30px;
         &_container {
             overflow: hidden;
-            width: 800px;
+            width: 840px;
             background: #F5F5F5;
             border: 2px solid #E8E8E8;
             border-radius: 3px;
@@ -27,7 +27,8 @@ $border_top_color: #E5E7E8;
                     height: 16px;
                     background: url('../images/icons/slider-arrow.png');
                     position: absolute;
-                    top: 110px
+                    top: 110px;
+                    opacity: 1;
                 }
                 &_next {
                     right: 10px;
@@ -44,10 +45,21 @@ $border_top_color: #E5E7E8;
             &_img {
                 overflow: hidden;
                 margin: 10px;
-                &_box {
-                    display: inline-block;
-                    & img {
-                        height: 179px;
+                &_block {
+                    position: relative;
+                    font-size: 0;
+                    &_box {
+                        width: 200px;
+                        overflow: hidden;
+                        display: inline-block;
+                        margin-right: 5px;
+                        position: relative;
+                        & img {
+                            height: 179px;
+                        }
+                    }
+                    &_box:last-child {
+                        margin-right: 0;
                     }
                 }
             }
@@ -294,4 +306,7 @@ $border_top_color: #E5E7E8;
 } 
 .chosen-container {
     width: 200px !important;
+}
+.disabled {
+    opacity: .5;
 }

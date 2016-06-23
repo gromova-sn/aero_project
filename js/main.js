@@ -14,7 +14,7 @@
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
         initialize: function () {
-            console.log(this.model);
+            // console.log(this.model);
             // this.listenTo(this.model, 'change', this.render);
         },
         render: function () {
@@ -71,7 +71,8 @@
             'click #btn_bron': 'makeBron',
             'click .curtain_close': 'curtainUp',
             'click .container_header_arrow': 'containerRollUp',
-            // 'click #slider_next':
+            'click #slider_next': 'curtainSliderNext',
+            'click #slider_prev': 'curtainSliderPrev'
         },
         initialize: function() {
             this.collection = new AeroCollection(); //создаем модель коллекции
@@ -83,6 +84,8 @@
         
             this.curtainDown();
             this.resizeHeightWindow();
+
+            this.imgBlockStep = 200;
         },
         resizeHeightWindow: function () {
             $('.wrapp_page').height(window.innerHeight);
@@ -97,8 +100,39 @@
             $('.curtain').removeClass('curtain_down');
             $('.curtain').addClass('curtain_up');
         },
-        curtainSlider: function () {
+        curtainSliderNext: function (event) {
+            var $blockToMove = $('.curtain_slider_container_img_block'),
+                $el = $(event.currentTarget);
 
+            if(this.imgBlockStep < 610) {
+                $el.removeClass('disabled');
+            }
+
+            if($el.hasClass('disabled')) return;
+            $blockToMove.css('left', '-' + this.imgBlockStep + 'px');
+            this.imgBlockStep += 205;
+            
+            if(this.imgBlockStep == 610) {
+                $el.addClass('disabled');
+            }
+        },
+        curtainSliderPrev: function (event) {
+            var $blockToMove = $('.curtain_slider_container_img_block'),
+                $el = $(event.currentTarget);
+
+            if(this.imgBlockStep > 0) {
+                $el.removeClass('disabled');
+            }
+
+            if($el.hasClass('disabled')) return;
+            this.imgBlockStep -= 405;
+            $blockToMove.css('left', '-' + this.imgBlockStep + 'px');
+            
+            if(this.imgBlockStep <= 0) {
+                $el.addClass('disabled');
+            }
+            
+            this.imgBlockStep += 200;
         },
         containerRollUp: function (event) {
             var $elem = $(event.currentTarget),
