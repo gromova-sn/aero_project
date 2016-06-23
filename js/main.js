@@ -101,15 +101,15 @@
 
         },
         containerRollUp: function (event) {
-
-            
             var $elem = $(event.currentTarget);
+
             if($elem.hasClass('rollup')) {
                 $elem.parent('div').siblings('.container_body').hide();
                 $elem.removeClass('rollup');
             } else {
                 $elem.parent('div').siblings('.container_body').show();
                 $elem.addClass('rollup');
+
                 $('.wrapp_page').height($('.page').outerHeight());
             }
             
