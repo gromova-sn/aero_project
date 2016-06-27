@@ -15,7 +15,7 @@
         template: _.template($('#layout-view-template').html()),
         initialize: function () {
             // console.log(this.model);
-            // this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'change', this.render);
         },
         render: function () {
             this.model.save();
@@ -41,9 +41,8 @@
             this.$el.append(view.render().el);
         },
         changeBron: function (model) {
-            console.log(model);
             var view = new AeroItemView({ model: model });
-            this.$el.append(view.render().el);
+            view.render().el;
         }
 
     });
