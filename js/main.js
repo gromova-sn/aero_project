@@ -105,6 +105,7 @@
                 $el = $(event.currentTarget);
 
             if(this.imgBlockStep < 610) {
+                $('#slider_prev').removeClass('disabled');
                 $el.removeClass('disabled');
             }
 
@@ -121,6 +122,7 @@
                 $el = $(event.currentTarget);
 
             if(this.imgBlockStep > 0) {
+                $('#slider_next').removeClass('disabled');
                 $el.removeClass('disabled');
             }
 
