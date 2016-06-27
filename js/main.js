@@ -25,7 +25,7 @@
 
     var AeroCollection = Backbone.Collection.extend({
         model: AeroModel,
-        localStorage: new Backbone.LocalStorage("aeroStorage")
+        localStorage: new Backbone.LocalStorage('aeroStorage')
     });
 
     var AeroCollectionView = Backbone.View.extend({
@@ -84,7 +84,7 @@
                 aviareis = [];
                 aviaCountry = [];
                
-                $('.chosen-select.bron_flot').trigger("chosen:updated");
+                $('.chosen-select.bron_flot').trigger('chosen:updated');
             }, this );
 
             this.flotReis = objReis;
@@ -111,7 +111,7 @@
                 }
             }
             $('.chosen-select').prop('disabled', false);
-            $('.chosen-select').trigger("chosen:updated");            
+            $('.chosen-select').trigger('chosen:updated');            
         }
     });
 
@@ -131,7 +131,7 @@
             this.collectionView = new AeroCollectionView({ collection: this.collection }); //представление 1 коллекции
             this.collection.fetch();
 
-            $(".chosen-select").chosen();
+            $('.chosen-select').chosen();
             this.collectionChoseView = new AeroChoseCollectionView({ collection: this.collection }); //представление 1 коллекции
         
             this.curtainDown();
@@ -230,7 +230,7 @@
             _.each( this.collection.models, function (elem) {
                 elem.set({ count_reis: '35' });
             }, this );
-            console.log(this.collection);
+            // console.log(this.collection);
             // this.model.change(dataBron);
         }
     });
