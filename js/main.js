@@ -14,7 +14,6 @@
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
         initialize: function () {
-            // console.log(this.model);
             this.listenTo(this.model, 'change', this.render);
         },
         render: function () {
@@ -76,7 +75,7 @@
                         aviareis.push(element.get('reis'));
                         aviaCountry.push(element.get('country'));
                     }
-                });
+                }, this );
 
                 objReis[elem] = _.uniq(aviareis);
                 objCountry[elem] = _.uniq(aviaCountry);
@@ -152,7 +151,7 @@
         curtainUp: function () {
             $('.curtain').removeClass('curtain_down');
             $('.curtain').addClass('curtain_up');
-            if( !($('.container_header_arrow').hasClass('rollup')) ) {
+            if ( !($('.container_header_arrow').hasClass('rollup')) ) {
                 $('.container_header_arrow').trigger('click');
             }
         },
@@ -160,16 +159,16 @@
             var $blockToMove = $('.curtain_slider_container_img_block'),
                 $el = $(event.currentTarget);
 
-            if( this.imgBlockStep < 610 ) {
+            if ( this.imgBlockStep < 610 ) {
                 $('#slider_prev').removeClass('disabled');
                 $el.removeClass('disabled');
             }
 
-            if( $el.hasClass('disabled') ) return;
+            if ( $el.hasClass('disabled') ) return;
             $blockToMove.css('left', '-' + this.imgBlockStep + 'px');
             this.imgBlockStep += 205;
             
-            if( this.imgBlockStep == 610 ) {
+            if ( this.imgBlockStep == 610 ) {
                 $el.addClass('disabled');
             }
         },
@@ -177,16 +176,16 @@
             var $blockToMove = $('.curtain_slider_container_img_block'),
                 $el = $(event.currentTarget);
 
-            if( this.imgBlockStep > 0 ) {
+            if ( this.imgBlockStep > 0 ) {
                 $('#slider_next').removeClass('disabled');
                 $el.removeClass('disabled');
             }
 
-            if( $el.hasClass('disabled') ) return;
+            if ( $el.hasClass('disabled') ) return;
             this.imgBlockStep -= 405;
             $blockToMove.css('left', '-' + this.imgBlockStep + 'px');
             
-            if( this.imgBlockStep <= 0 ) {
+            if ( this.imgBlockStep <= 0 ) {
                 $el.addClass('disabled');
             }
             
@@ -197,14 +196,14 @@
                 pageHeight,
                 windowHeight = window.innerHeight;
 
-            if( $elem.hasClass('rollup') ) {
+            if ( $elem.hasClass('rollup') ) {
                 $elem.parent('div').siblings('.container_body').hide();
                 $elem.removeClass('rollup');
             } else {
                 $elem.parent('div').siblings('.container_body').show();
                 $elem.addClass('rollup');
                 pageHeight = $('.page').outerHeight()
-                if( pageHeight > windowHeight ) {
+                if ( pageHeight > windowHeight ) {
                     $('.wrapp_page').height($('.page').outerHeight());
                 }
             }
