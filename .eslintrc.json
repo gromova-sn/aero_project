@@ -17,6 +17,6 @@
 		"keyword-spacing": ["error", {
 			"before": true,
 			"after": true
-		}],
+		}]
 	}
 }

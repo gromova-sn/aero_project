@@ -41,7 +41,6 @@
             this.listenTo(this.collection, 'add', this.addNew);
         },
         addNew: function (model) {
-            console.log('add', model, this.collection);
             var view = new AeroItemView({ model: model });
             this.$el.append(view.render().el);
             this.resizeWindowAfterAdd();
@@ -59,6 +58,8 @@
             this.choseReserve(this.collectionChose.models);
 
             this.flotCountry;
+
+            this.listenTo(this.collectionChose, 'add', this.choseReserve);
         },
         events: {
             'change .reserve_flot': 'changeAviaCountry'
@@ -68,7 +69,8 @@
                 objReis = {},
                 objCountry = {},
                 aviareis = [],
-                aviaCountry = [];
+                aviaCountry = [],
+                model = this.collectionChose.models;
 
             _.each( model, function (elem, index) {      
                 aviaCompany.push(elem.get('flot'));
@@ -211,7 +213,7 @@
             
         },
         addLine: function () {
-            if( !$('#name_flot').val() || !$('#reis_flot').val() ) return; 
+            if ( !$('#name_flot').val() || !$('#reis_flot').val() ) return; 
             var allCountry = $('.country_box input:checked').val();
 
             var data = {
