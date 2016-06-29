@@ -33,19 +33,12 @@
         initialize: function (params) {
             this.collection = params.collection;
             this.listenTo(this.collection, 'add', this.addNew);
-            this.listenTo(this.collection, 'change', this.changeBron);
-
         },
         addNew: function (model) {
-            console.log(1);
+            console.log('add', model);
             var view = new AeroItemView({ model: model });
             this.$el.append(view.render().el);
             this.resizeWindowAfterAdd();
-        },
-        changeBron: function (model) {
-            console.log(11);
-            // var view = new AeroItemView({ model: model });
-            view.render().el;
         },
         resizeWindowAfterAdd: function () {
             $('.wrapp_page').css('height', 'auto');
@@ -233,8 +226,9 @@
             var bronCompany = $(this.el).find('.bron_flot option:selected').val(),
                 bronCountry = $(this.el).find('.bron_country option:selected').val();
 
+                console.log(1, this.collection);
             _.each( this.collection.models, function (elem) {
-                // console.log(elem);
+                console.log(elem);
                 if ( (elem.get('flot') ===  bronCompany) && (elem.get('country') === bronCountry) ) {
                     elem.set({ count_reis: ( elem.get('count_reis') + 1 ) });
                 }
