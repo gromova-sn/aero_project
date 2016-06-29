@@ -129,7 +129,7 @@
             $('.chosen-select').chosen();
             this.collectionChoseView = new AeroChoseCollectionView({ collection: this.collection }); //представление 1 коллекции
         
-            // this.curtainDown(); вернуть как реализую бронь
+            this.curtainDown(); 
             this.resizeHeightWindow();
 
             this.imgBlockStep = 200;
