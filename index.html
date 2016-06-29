@@ -48,7 +48,7 @@
                         <a href="#flot" class="navigator_menu_bar_list_href">Регистрация рейса</a>
                     </li>
                     <li class="navigator_menu_bar_list">
-                        <a href="#bron" class="navigator_menu_bar_list_href">Бронирование на рейс</a>
+                        <a href="#reserve" class="navigator_menu_bar_list_href">Бронирование на рейс</a>
                     </li>
                     <li class="navigator_menu_bar_list">
                         <a href="#all" class="navigator_menu_bar_list_href">Сводная таблица рейсов</a>
@@ -98,44 +98,44 @@
                     </div>
                 </div>
 
-                <div class="page_bron container" id="bron">
-                    <div class="page_bron_header container_header">
+                <div class="page_reserve container" id="reserve">
+                    <div class="page_reserve_header container_header">
                         <h5>Забронировать места на рейс</h5>
                         <div class="container_header_arrow"></div>
                     </div>
-                    <div class="page_bron_body container_body">
-                        <form action="" id="bron_form" method="POST">
-                            <div class="container_body_line bron_flot_select">
-                                <label for="bron_form" class="container_body_line_label">Авиакомпания</label>
+                    <div class="page_reserve_body container_body">
+                        <form action="" id="reserve_form" method="POST">
+                            <div class="container_body_line reserve_flot_select">
+                                <label for="reserve_form" class="container_body_line_label">Авиакомпания</label>
                                 <div class="container_body_line_select">
-                                    <select data-placeholder="Выберите авиакомпанию" name="bron_flot" class="chosen-select bron_flot">
+                                    <select data-placeholder="Выберите авиакомпанию" name="reserve_flot" class="chosen-select reserve_flot">
                                         <option ></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="container_body_line">
-                                <label for="bron_form" class="container_body_line_label">Страна полета</label>
+                                <label for="reserve_form" class="container_body_line_label">Страна полета</label>
                                 <div class="container_body_line_select">
-                                    <select data-placeholder="Выберите страну полета" name="bron_country" class="chosen-select bron_country" disabled>
+                                    <select data-placeholder="Выберите страну полета" name="reserve_country" class="chosen-select reserve_country" disabled>
                                         <option></option>
                                     </select>
                                 </div>
                             </div>
                             <!-- <div class="container_body_line">
-                                <label for="bron_form" class="container_body_line_label">Даты вылета</label>
+                                <label for="reserve_form" class="container_body_line_label">Даты вылета</label>
                                 <div class="container_body_line_select">
                                     
                                 </div>
                             </div> -->
                             <!-- <div class="container_body_line">
-                                <label for="bron_form" class="container_body_line_label">Направление</label>
+                                <label for="reserve_form" class="container_body_line_label">Направление</label>
                                 <div class="container_body_line_check">
                                     <input type="radio" value="double">туда и обратно<br>
                                 </div>
                             </div> -->
                             <div class="container_body_line">
                                 <div class="container_body_line_btn">
-                                    <div id="btn_bron" class="container_body_line_btn_button btn_change">Забронировать</div>
+                                    <div id="btn_reserve" class="container_body_line_btn_button btn_change">Забронировать</div>
                                 </div>
                             </div>
                         </form>

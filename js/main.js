@@ -14,21 +14,19 @@
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
         initialize: function () {
-            // this.listenTo(this.model, 'change', this.rerender);
+            this.listenTo(this.model, 'change:count_reis', this.render);
         },
         render: function () {
             this.model.save();
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         }
-        // ,
-        // rerender: function () {
-        //     console.log(this.model);
-        //     this.model.save();
-        //     //сохранять изменившуюся модель; this.model.save(); <- сохраняет повторно модель; срабатывает add при инициализации
-        //     this.$el.html(this.template(this.model.toJSON()));
-        //     return this;
-        // }
+        ,
+        rerender: function () {
+            this.model.save();
+            this.$el.html(this.template(this.model.toJSON()));
+            return this;
+        }
     });
 
     var AeroCollection = Backbone.Collection.extend({
@@ -55,17 +53,17 @@
     });
 
     var AeroChoseCollectionView = Backbone.View.extend({
-        el: '#bron',
+        el: '#reserve',
         initialize: function (params) {
             this.collectionChose = params.collection;
-            this.choseBron(this.collectionChose.models);
+            this.choseReserve(this.collectionChose.models);
 
             this.flotCountry;
         },
         events: {
-            'change .bron_flot': 'changeAviaCountry'
+            'change .reserve_flot': 'changeAviaCountry'
         },
-        choseBron: function (model) {
+        choseReserve: function (model) {
             var aviaCompany = [],
                 objReis = {},
                 objCountry = {},
@@ -85,25 +83,25 @@
 
                 objReis[elem] = _.uniq(aviareis);
                 objCountry[elem] = _.uniq(aviaCountry);
-                $(this.el).find('.bron_flot').append('<option value=' + elem + '>'  + elem + '</option>');
+                $(this.el).find('.reserve_flot').append('<option value=' + elem + '>'  + elem + '</option>');
                 
                 aviareis = [];
                 aviaCountry = [];
                
-                $('.chosen-select.bron_flot').trigger('chosen:updated');
+                $('.chosen-select.reserve_flot').trigger('chosen:updated');
             }, this );
 
             this.flotCountry = objCountry;
         },
         changeAviaCountry: function () {
-            var selectedElem = $('.bron_flot option:selected').text();
+            var selectedElem = $('.reserve_flot option:selected').text();
 
-            $(this.el).find('.bron_country').html('');
+            $(this.el).find('.reserve_country').html('');
 
             for ( var key in this.flotCountry ) {
                 if ( selectedElem == key ) {
                     _.each( this.flotCountry[key], function (elem) {
-                        $(this.el).find('.bron_country').append('<option value=' + elem + '>'  + elem + '</option>');
+                        $(this.el).find('.reserve_country').append('<option value=' + elem + '>'  + elem + '</option>');
                     }, this );
                 }
             }
@@ -117,7 +115,7 @@
         el: 'body',
         events: {
             'click #btn_flot': 'addLine',
-            'click #btn_bron': 'makeBron',
+            'click #btn_reserve': 'makeReserve',
             'click .curtain_close': 'curtainUp',
             'click .container_header_arrow': 'containerRollUp',
             'click #slider_next': 'curtainSliderNext',
@@ -229,12 +227,12 @@
             $('#reis_flot').val('');
             $('.country_box input:checked').attr('checked', false);
         },
-        makeBron: function () {
-            var bronCompany = $(this.el).find('.bron_flot option:selected').val(),
-                bronCountry = $(this.el).find('.bron_country option:selected').val();
+        makeReserve: function () {
+            var reserveCompany = $(this.el).find('.reserve_flot option:selected').val(),
+                reserveCountry = $(this.el).find('.reserve_country option:selected').val();
 
             _.each( this.collection.models, function (elem) {
-                if ( (elem.get('flot') ===  bronCompany) && (elem.get('country') === bronCountry) ) {
+                if ( (elem.get('flot') ===  reserveCompany) && (elem.get('country') === reserveCountry) ) {
                     elem.set({ count_reis: ( elem.get('count_reis') + 1 ) });
                 }
             }, this );
