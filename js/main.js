@@ -14,10 +14,15 @@
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
         initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
+            this.listenTo(this.model, 'change', this.rerender);
         },
         render: function () {
             this.model.save();
+            this.$el.html(this.template(this.model.toJSON()));
+            return this;
+        },
+        rerender: function () {
+            //сохранять изменившуюся моель this.model.save(); <- сохраняет повторно модель
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         }
@@ -35,7 +40,7 @@
             this.listenTo(this.collection, 'add', this.addNew);
         },
         addNew: function (model) {
-            console.log('add', model);
+            console.log('add', model, this.collection);
             var view = new AeroItemView({ model: model });
             this.$el.append(view.render().el);
             this.resizeWindowAfterAdd();
@@ -222,19 +227,14 @@
             $('.country_box input:checked').attr('checked', false);
         },
         makeBron: function () {
-            //проблема в коллекции, в changeBron; дублируется модель 
             var bronCompany = $(this.el).find('.bron_flot option:selected').val(),
                 bronCountry = $(this.el).find('.bron_country option:selected').val();
 
-                console.log(1, this.collection);
             _.each( this.collection.models, function (elem) {
-                console.log(elem);
                 if ( (elem.get('flot') ===  bronCompany) && (elem.get('country') === bronCountry) ) {
                     elem.set({ count_reis: ( elem.get('count_reis') + 1 ) });
                 }
             }, this );
-
-            console.log(this.collection);
         }
     });
 
