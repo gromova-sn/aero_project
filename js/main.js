@@ -247,6 +247,4 @@
     });
 
     window.App = new AeroApp;
-
-
 })();
