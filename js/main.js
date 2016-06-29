@@ -34,14 +34,21 @@
             this.collection = params.collection;
             this.listenTo(this.collection, 'add', this.addNew);
             this.listenTo(this.collection, 'change', this.changeBron);
+
         },
         addNew: function (model) {
+            console.log(1);
             var view = new AeroItemView({ model: model });
             this.$el.append(view.render().el);
+            this.resizeWindowAfterAdd();
         },
         changeBron: function (model) {
-            var view = new AeroItemView({ model: model });
+            console.log(11);
+            // var view = new AeroItemView({ model: model });
             view.render().el;
+        },
+        resizeWindowAfterAdd: function () {
+            $('.wrapp_page').css('height', 'auto');
         }
 
     });
@@ -51,12 +58,11 @@
         initialize: function (params) {
             this.collectionChose = params.collection;
             this.choseBron(this.collectionChose.models);
-            
-            this.flotReis;
+
             this.flotCountry;
         },
         events: {
-            'change .bron_flot': 'changeReisCountry'
+            'change .bron_flot': 'changeAviaCountry'
         },
         choseBron: function (model) {
             var aviaCompany = [],
@@ -72,7 +78,6 @@
             _.each( _.uniq(aviaCompany), function (elem) {     
                 _.each( model, function (element) {  
                     if ( elem == element.get('flot') ) {
-                        aviareis.push(element.get('reis'));
                         aviaCountry.push(element.get('country'));
                     }
                 }, this );
@@ -87,22 +92,13 @@
                 $('.chosen-select.bron_flot').trigger('chosen:updated');
             }, this );
 
-            this.flotReis = objReis;
             this.flotCountry = objCountry;
         },
-        changeReisCountry: function () {
+        changeAviaCountry: function () {
             var selectedElem = $('.bron_flot option:selected').text();
 
-            $(this.el).find('.bron_reis').html('');
             $(this.el).find('.bron_country').html('');
 
-            for ( var key in this.flotReis ) {
-                if ( selectedElem == key ) {
-                    _.each( this.flotReis[key], function (elem) {
-                        $(this.el).find('.bron_reis').append('<option value=' + elem + '>'  + elem + '</option>');
-                    }, this );
-                }
-            }
             for ( var key in this.flotCountry ) {
                 if ( selectedElem == key ) {
                     _.each( this.flotCountry[key], function (elem) {
@@ -134,7 +130,7 @@
             $('.chosen-select').chosen();
             this.collectionChoseView = new AeroChoseCollectionView({ collection: this.collection }); //представление 1 коллекции
         
-            this.curtainDown();
+            // this.curtainDown(); вернуть как реализую бронь
             this.resizeHeightWindow();
 
             this.imgBlockStep = 200;
@@ -199,6 +195,12 @@
             if ( $elem.hasClass('rollup') ) {
                 $elem.parent('div').siblings('.container_body').hide();
                 $elem.removeClass('rollup');
+                this.resizeHeightWindow();
+                pageHeight = $('.page').outerHeight()
+                if ( pageHeight > windowHeight ) {
+                    $('.wrapp_page').height($('.page').outerHeight());
+                }
+
             } else {
                 $elem.parent('div').siblings('.container_body').show();
                 $elem.addClass('rollup');
@@ -227,11 +229,18 @@
             $('.country_box input:checked').attr('checked', false);
         },
         makeBron: function () {
+            //проблема в коллекции, в changeBron; дублируется модель 
+            var bronCompany = $(this.el).find('.bron_flot option:selected').val(),
+                bronCountry = $(this.el).find('.bron_country option:selected').val();
+
             _.each( this.collection.models, function (elem) {
-                elem.set({ count_reis: '35' });
+                // console.log(elem);
+                if ( (elem.get('flot') ===  bronCompany) && (elem.get('country') === bronCountry) ) {
+                    elem.set({ count_reis: ( elem.get('count_reis') + 1 ) });
+                }
             }, this );
-            // console.log(this.collection);
-            // this.model.change(dataBron);
+
+            console.log(this.collection);
         }
     });
 

@@ -1,17 +1,22 @@
 {
 	"parserOptions": {
-	    "ecmaVersion": 5,
-	    "sourceType": "script",
-	    "ecmaFeatures": {
-	        "impliedStrict": true
-	    }
+		"ecmaVersion": 5,
+		"sourceType": "script",
+		"ecmaFeatures": {
+			"impliedStrict": true
+		}
 	},
 	"env": {
-	    "browser": true,
-	    "jquery": true
+		"browser": true,
+		"jquery": true
 	},
 	"rules": {
-	    "no-console": ["error"],
-	    "quotes": ["error", "single", {"avoidEscape": true}]
+		"no-console": ["error"],
+		"quotes": ["error", "single", {"avoidEscape": true}],
+		"no-spaced-func": ["error"],
+		"keyword-spacing": ["error", {
+			"before": true,
+			"after": true
+		}],
 	}
 }
