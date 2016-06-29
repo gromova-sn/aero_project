@@ -55,7 +55,7 @@
         el: '#reserve',
         initialize: function (params) {
             this.collectionChose = params.collection;
-            this.choseReserve(this.collectionChose.models);
+            this.choseReserve();
 
             this.flotCountry;
 
@@ -71,6 +71,8 @@
                 aviareis = [],
                 aviaCountry = [],
                 model = this.collectionChose.models;
+
+            $(this.el).find('.reserve_flot option').html('');
 
             _.each( model, function (elem, index) {      
                 aviaCompany.push(elem.get('flot'));
