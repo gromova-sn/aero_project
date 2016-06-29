@@ -14,18 +14,21 @@
         tagName: 'tr',
         template: _.template($('#layout-view-template').html()),
         initialize: function () {
-            this.listenTo(this.model, 'change', this.rerender);
+            // this.listenTo(this.model, 'change', this.rerender);
         },
         render: function () {
             this.model.save();
             this.$el.html(this.template(this.model.toJSON()));
             return this;
-        },
-        rerender: function () {
-            //сохранять изменившуюся моель this.model.save(); <- сохраняет повторно модель
-            this.$el.html(this.template(this.model.toJSON()));
-            return this;
         }
+        // ,
+        // rerender: function () {
+        //     console.log(this.model);
+        //     this.model.save();
+        //     //сохранять изменившуюся модель; this.model.save(); <- сохраняет повторно модель; срабатывает add при инициализации
+        //     this.$el.html(this.template(this.model.toJSON()));
+        //     return this;
+        // }
     });
 
     var AeroCollection = Backbone.Collection.extend({
