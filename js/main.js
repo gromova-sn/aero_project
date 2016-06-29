@@ -73,6 +73,9 @@
                 model = this.collectionChose.models;
 
             $(this.el).find('.reserve_flot option').html('');
+            $('.reserve_country option').html('');
+            $('.reserve_country').prop('disabled', true);
+            $('.reserve_country').trigger('chosen:updated'); 
 
             _.each( model, function (elem, index) {      
                 aviaCompany.push(elem.get('flot'));
@@ -100,7 +103,7 @@
         changeAviaCountry: function () {
             var selectedElem = $('.reserve_flot option:selected').text();
 
-            $(this.el).find('.reserve_country').html('');
+            $(this.el).find('.reserve_country option').html('');
 
             for ( var key in this.flotCountry ) {
                 if ( selectedElem == key ) {
